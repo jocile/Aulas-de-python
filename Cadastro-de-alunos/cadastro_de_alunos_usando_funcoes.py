@@ -24,7 +24,8 @@ def escolher_opcao():
             case 1:
                 cadastrar_aluno()
             case 2:
-                consultar_aluno()
+                buscar_matricula = input("Digite a matrícula do aluno que deseja consultar: ")
+                consultar_aluno(buscar_matricula)
             case 3:
                 excluir_aluno()
             case 4:
@@ -43,24 +44,30 @@ def cadastrar_aluno():
         alunos[matricula] = {"nome": aluno, "curso": curso, "data_nascimento": data_nascimento}
         return alunos
 
-def consultar_aluno():
+def consultar_aluno(matricula):
     # Buscar um aluno por matrícula e exibir seus dados completos.
+    # FIXME Mensagem repetida de digite a matrícula
         buscar_matricula = input("Digite a matrícula do aluno que deseja consultar: ")
         if buscar_matricula in alunos:
             aluno_encontrado = alunos[buscar_matricula]
             print(f"Aluno encontrado: {aluno_encontrado['nome']}")
             print(f"Matrícula: {buscar_matricula}")
+            return True
         else :
             print("Aluno não encontrado!")
+            return False
 
 def excluir_aluno():
-    # TODO
-    pass
+    matricula = input("Qual a matrícula do aluno a ser excluído: ")
+    achou = consultar_aluno(matricula)
+    if achou:    
+        del alunos[matricula]
+        print("Aluno excluído com sucesso!")    
 
 
 menu()
 escolher_opcao()
-# TODO mostrar menu para escolher opções
+# FIXME mostrar menu para escolher opções
 
-# TODO criar a função para mostrar os alunos mais organizados
+# FIXME criar a função para mostrar os alunos mais organizados
 print(alunos.items())
