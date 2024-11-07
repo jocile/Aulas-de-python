@@ -1,13 +1,12 @@
 '''
 Criando um conversor de temperatura em Python com Tkinter
-- [x] Criando uma janela com Tkinter
-- [x] Criando um frame para a entrada de dados
-- [x] Criando um entry para a entrada de dados
-- [x] Criando um frame para o botão
-- [x] Criando um label para o botão
+- [X] Criando uma janela com Tkinter
+- [X] Criando um frame para a entrada de dados
+- [X] Criando um entry para a entrada de dados
+- [X] Criando um frame para o botão
+- [X] Criando um label para o botão
 - [ ] Criar a função para conversão
 - [ ] Criar o comando para o botão
-
 '''
 
 import tkinter as tk
