@@ -1,3 +1,21 @@
+'''
+Atividade crfiar um CRUD:
+Crie um banco de dados com o nome "banco_de_dados.db" e uma tabela chamada "clientes" com as seguintes colunas:
+- id (chave primária, autoincremento)
+- nome (varchar)
+- email (varchar)
+
+Algoritmo:
+- [x] Criar o banco de dados
+- [x] Criar a tabela de clientes
+- [x] Inserir dados na tabela de clientes
+- [x] Mostrar todos os clientes
+- [ ] Atualizar um cliente
+- [ ] Deletar um cliente
+- [x] Fechar a conexão com o banco de dados
+
+'''
+
 import sqlite3
 from pathlib import Path
 
