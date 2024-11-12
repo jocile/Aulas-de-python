@@ -1,5 +1,5 @@
 '''
-Atividade crfiar um CRUD:
+Atividade criar um CRUD:
 Crie um banco de dados com o nome "banco_de_dados.db" e uma tabela chamada "clientes" com as seguintes colunas:
 - id (chave primária, autoincremento)
 - nome (varchar)
@@ -10,8 +10,8 @@ Algoritmo:
 - [x] Criar a tabela de clientes
 - [x] Inserir dados na tabela de clientes
 - [x] Mostrar todos os clientes
-- [ ] Atualizar um cliente
-- [ ] Deletar um cliente
+- [x] Atualizar um cliente
+- [x] Deletar um cliente
 - [x] Fechar a conexão com o banco de dados
 
 '''
@@ -56,8 +56,19 @@ def mostrar_clientes():
   for linha in cursor.fetchall():
     print(f"ID: {linha[0]}, Nome: {linha[1]}, Email: {linha[2]}")
 
-criar_tabela_clientes()
+def atualizar_cliente():
+  cursor.execute("UPDATE clientes SET nome = 'João da Silva' WHERE id = 1")
+  conexao.commit()
+
+def deletar_cliente():
+  cursor.execute("DELETE FROM clientes WHERE id = 3")
+  conexao.commit()
+
+# criar_tabela_clientes()
 # inserir_clientes()
+mostrar_clientes()
+# atualizar_cliente()
+# deletar_cliente()
 # mostrar_clientes()
 
 # Fecha a conexão com o banco de dados
