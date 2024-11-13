@@ -6,13 +6,13 @@ Crie um banco de dados com o nome "banco_de_dados.db" e uma tabela chamada "clie
 - email (varchar)
 
 Algoritmo:
-- [x] Criar o banco de dados
-- [x] Criar a tabela de clientes
-- [x] Inserir dados na tabela de clientes
-- [x] Mostrar todos os clientes
-- [x] Atualizar um cliente
-- [x] Deletar um cliente
-- [x] Fechar a conexão com o banco de dados
+- [X] Criar o banco de dados
+- [X] Criar a tabela de clientes
+- [X] Inserir dados na tabela de clientes
+- [X] Mostrar todos os clientes
+- [X] Atualizar um cliente
+- [X] Deletar um cliente
+- [X] Fechar a conexão com o banco de dados
 
 '''
 
