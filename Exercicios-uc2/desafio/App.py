@@ -7,7 +7,7 @@ Algoritmo:
 - [ ] Criar o CRUD
   - [x] Criar a função de cadastro
   - Cadastrar aluno: Permitir a inserção de dados do aluno, incluindo nome, matrícula, curso e data de nascimento.
-  - [ ] Criar a função de consulta
+  - [x] Criar a função de consulta
   - Consultar aluno: Buscar um aluno por nome ou matrícula e exibir seus dados completos.
   - [ ] Criar a função de atualização
   - Atualizar aluno: Atualizar os dados de um aluno existente, como nome, matrícula, curso ou data de nascimento.
@@ -19,10 +19,12 @@ import sqlite3
 
 from pathlib import Path
 ROOT_PATH = Path(__file__).parent
+conexao = sqlite3.connect(ROOT_PATH / "alunos.db")
+cursor = conexao.cursor()
 
 def criar_tabela(conexao, cursor):
 	cursor.execute(
-	"CREATE TABLE clientes (id INTEGER PRIMARY KEY AUTOINCREMENT, nome VARCHAR(100), matricula VARCHAR(20), curso VARCHAR(20), data_nascimento VARCHAR(20))"
+	"CREATE TABLE alunos (id INTEGER PRIMARY KEY AUTOINCREMENT, nome VARCHAR(100), matricula VARCHAR(20), curso VARCHAR(20), data_nascimento VARCHAR(20))"
 	)
 	conexao.commit()
 
@@ -32,18 +34,29 @@ def cadastrar_aluno():
     aluno['matricula'] = input("Digite a matrícula do aluno: ")
     aluno['curso'] = input("Digite o curso do aluno: ")
     aluno['data_nascimento'] = input("Digite a data de nascimento do aluno: ")
+
+    cursor.execute("INSERT INTO alunos (nome, matricula, curso, data_nascimento) VALUES (?, ?, ?, ?)", (aluno['nome'], aluno['matricula'], aluno['curso'], aluno['data_nascimento']))
+    conexao.commit()
     print("Aluno cadastrado com sucesso!")
 
-    conexao = sqlite3.connect(ROOT_PATH / "aluno.db")
-    cursor = conexao.cursor()
-    cursor.execute("INSERT INTO clientes (nome, matricula, curso, data_nascimento) VALUES (?, ?, ?, ?)", (aluno['nome'], aluno['matricula'], aluno['curso'], aluno['data_nascimento']))
-    conexao.commit()
-    
+def consultar_aluno():
+    opcao = input("Consultar por nome ou por matrícula? [digite n ou m]: ")
+    if opcao == "n":
+      nome = input("Digite o nome do aluno para consultar: ")
+      cursor.execute("SELECT * FROM alunos WHERE nome=?", (nome,))
+      aluno = cursor.fetchone()
+      if aluno == None: print(f"O aluno {nome} não foi encontrado!")
+      else: print(f"Aluno: {aluno[1]}, matrícula: {aluno[2]}, curso:{aluno[3]}, data de nascimento: {aluno[4]}")
+    else:
+      matricula = input("Digite a matrícula do aluno para consultar: ")
+      cursor.execute("SELECT * FROM alunos WHERE matricula=?", (matricula,))
+      aluno = cursor.fetchone()
+      if aluno == None: print(f"A matrílula {matricula} não foi encontrada!")
+      else: print(f"Aluno: {aluno[1]}, matrícula: {aluno[2]}, curso:{aluno[3]}, data de nascimento: {aluno[4]}")
 
 def main():
     
-    conexao = sqlite3.connect(ROOT_PATH / "aluno.db")
-    cursor = conexao.cursor()
+    
     # criar_tabela(conexao, cursor)
     
     while True:
@@ -80,10 +93,6 @@ def main():
         else:
             print("Opção inválida!")
     conexao.close()
-
-def consultar_aluno():
-    # Implementar a funcionalidade de consulta de aluno
-    pass
 
 def atualizar_aluno():
   # Implementar a funcionalidade de atualização de aluno
