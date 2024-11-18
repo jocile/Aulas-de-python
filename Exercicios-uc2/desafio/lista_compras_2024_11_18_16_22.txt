@@ -1,0 +1,5 @@
+Feijão: R$ 4.00
+Macarrão: R$ 2.00
+Arroz: R$ 3.00
+
+Valor Total: R$ 9.00

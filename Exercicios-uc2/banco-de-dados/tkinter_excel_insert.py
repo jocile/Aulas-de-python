@@ -11,6 +11,7 @@ import openpyxl
 ROOT_PATH = Path(__file__).parent
 path = ROOT_PATH / "data/people.xlsx"
 
+
 def load_data():
     workbook = openpyxl.load_workbook(path)
     sheet = workbook.active

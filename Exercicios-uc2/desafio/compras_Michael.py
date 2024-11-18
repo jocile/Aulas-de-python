@@ -2,7 +2,9 @@ import tkinter as tk
 from tkinter import messagebox, filedialog
 import os
 from datetime import datetime
+from pathlib import Path
 
+ROOT_PATH = Path(__file__).parent
 # Função para exibir a lista de compras
 def exibir_lista():
     # Limpar a área de exibição
@@ -32,6 +34,7 @@ def adicionar_produto():
             compras.append([produto, valor])
             input_produto.delete(0, tk.END)  # Limpar o campo de entrada
             input_valor.delete(0, tk.END)  # Limpar o campo de entrada
+            exibir_lista()
         except ValueError:
             messagebox.showerror("Erro", "Valor inválido! Digite um número válido para o valor.")
     else:
@@ -44,6 +47,7 @@ def excluir_produto():
         if item[0].lower() == produto_excluir.lower():
             compras.remove(item)
             input_produto.delete(0, tk.END)
+            exibir_lista()
             return
     messagebox.showerror("Erro", f"Produto '{produto_excluir}' não encontrado.")
 
@@ -77,7 +81,7 @@ def salvar_lista():
         return
     
     # Defina o diretório específico onde as listas serão salvas (modifique conforme necessário)
-    pasta_destino = "D:/Users/Aluno/ComprasDoDia"  # Escolha o caminho da pasta
+    pasta_destino = ROOT_PATH  # Escolha o caminho da pasta
     
     # Se a pasta não existir, crie-a
     if not os.path.exists(pasta_destino):
@@ -88,7 +92,7 @@ def salvar_lista():
     caminho_arquivo = os.path.join(pasta_destino, nome_arquivo)
 
     try:
-        with open(caminho_arquivo, "w") as arquivo_salvo:
+        with open(caminho_arquivo, "w", encoding="utf-8") as arquivo_salvo:
             total = 0
             for produto, valor in compras:
                 arquivo_salvo.write(f"{produto}: R$ {valor:.2f}\n")
@@ -99,9 +103,8 @@ def salvar_lista():
         messagebox.showerror("Erro", f"Erro ao salvar a lista: {e}")
 
 # Função para recuperar a lista de compras a partir de um arquivo
-def recuperar_lista():
-    # FIXME: Pasta de destino onde os arquivos de lista são salvos
-    pasta_destino = "D:/Users/Aluno/ComprasDoDia"  # Diretório onde os arquivos de lista são salvos
+def recuperar_lista():    
+    pasta_destino = ROOT_PATH  # Diretório onde os arquivos de lista são salvos
     
     # Abrir a janela de seleção de arquivo para o usuário escolher qual lista recuperar
     arquivo = filedialog.askopenfilename(
