@@ -1,0 +1,8 @@
+Lista de Compras:
+Item: Arroz, Quantidade: 1, Valor: R$2.50, Total: R$2.50
+Item: Feijão, Quantidade: 1, Valor: R$4.00, Total: R$4.00
+Item: Macarrão, Quantidade: 3, Valor: R$2.00, Total: R$6.00
+
+Valor Total: R$12.50
+Desconto: 0%
+Total com Desconto: R$12.50

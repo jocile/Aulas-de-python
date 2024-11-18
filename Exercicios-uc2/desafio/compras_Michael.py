@@ -102,10 +102,11 @@ def salvar_lista():
     except Exception as e:
         messagebox.showerror("Erro", f"Erro ao salvar a lista: {e}")
 
+
 # Função para recuperar a lista de compras a partir de um arquivo
-def recuperar_lista():    
+def recuperar_lista():
     pasta_destino = ROOT_PATH  # Diretório onde os arquivos de lista são salvos
-    
+
     # Abrir a janela de seleção de arquivo para o usuário escolher qual lista recuperar
     arquivo = filedialog.askopenfilename(
         title="Selecione um arquivo de lista de compras",
