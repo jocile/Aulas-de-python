@@ -3,11 +3,11 @@ Inserindo dados dados na planilha do Excel
 referência: https://www.youtube.com/watch?v=8m4uDS_nyCk
 
 Algoritmo:
-- [x] Carregar dados de uma planilha
-- [x] Exibir os dados em uma janela Tkinter
-- [x] Inserir novos registros na planilha
+- [X] Carregar dados de uma planilha
+- [X] Exibir os dados em uma janela Tkinter
+- [X] Inserir novos registros na planilha
 - [ ] Organizar o código criando funções separadas para:
-  - [x] Criar uma função para carregar a janela Tkinter
+  - [X] Criar uma função para carregar a janela Tkinter
   - [ ] Criar widgets de entrada
   - [ ] Configurar o TreeView
   - [ ] Configurar os botões

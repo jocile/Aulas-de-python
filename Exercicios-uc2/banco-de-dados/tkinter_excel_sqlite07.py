@@ -14,6 +14,7 @@ Algoritmo:
   - [X] Configurar os eventos
   - [X] Criar a função de atualizar m registro
 - [ ] Salvar os dados em um banco de dados Sqlite
+    - [ ] Salvar a lista da planilha para o banco de dados
 
 '''
 

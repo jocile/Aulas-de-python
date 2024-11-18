@@ -100,6 +100,7 @@ def salvar_lista():
 
 # Função para recuperar a lista de compras a partir de um arquivo
 def recuperar_lista():
+    # FIXME: Pasta de destino onde os arquivos de lista são salvos
     pasta_destino = "D:/Users/Aluno/ComprasDoDia"  # Diretório onde os arquivos de lista são salvos
     
     # Abrir a janela de seleção de arquivo para o usuário escolher qual lista recuperar
